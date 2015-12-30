@@ -1,0 +1,22 @@
+package com.orangehrm.utilty;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+
+
+
+public class CapturingScreenshots {
+	
+	public void takescreenshot(WebDriver driver,String path) throws IOException
+	{
+		File srcFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(srcFile,new File(path));
+	}
+
+}
